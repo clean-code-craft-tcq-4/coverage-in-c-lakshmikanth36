@@ -3,8 +3,9 @@
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   if(value < lowerLimit || value > upperLimit ) {
-        return (TOO_LOW || TOO_HIGH || NORMAL);
+        return TOO_LOW || TOO_HIGH ;
   }
+  return NORMAL;
 }
 
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) {
