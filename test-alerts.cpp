@@ -14,6 +14,7 @@ TEST_CASE("classify breach")
 {
     REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, -1) == TOO_LOW);
     REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING, 46) == TOO_HIGH);
-    REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 41) == NORMAL);; 
+    REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 41) == TOO_HIGH);
+    REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 0) == NORMAL);
 
 }
