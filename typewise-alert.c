@@ -17,19 +17,22 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
 }
 
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) {
-  int lowerLimit = 0;
+  int lowerLimit[2]  = { 0 , 0 ,0  };
   int upperLimit[2] = { 35 ,45, 40 };
   if(coolingType == PASSIVE_COOLING) 
   {
-      return upperLimit[0];
+      lowerLimit = lowerLimit[0]; 
+      upperLimit = upperLimit[0];
   }
   else if(coolingType == HI_ACTIVE_COOLING)
   {
-      return upperLimit[1];
+      lowerLimit = lowerLimit[1]; 
+      upperLimit = upperLimit[1];
   }
   else
    {
-      return upperLimit[2];
+      lowerLimit = lowerLimit[2]; 
+      upperLimit = upperLimit[2];
   }
   return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
