@@ -55,19 +55,21 @@ void sendToController(BreachType breachType) {
   printf("%x : %x\n", header, breachType);
 }
 
-void printMessage(char *recepient,char *breachType)
+void printMessage(char *recepient,char *temperature_low_high)
 {
-    printf("To:%s \n, Hi, the temperature is %s \n ", recepient,breachType);
+    printf("To:%s \n,  %s \n ", recepient,temperature_low_high);
 }
 
 void sendToEmail(BreachType breachType) {
   const char* recepient = "a.b@c.com";
+  char* Temp_low = "Hi, the temperature is too low\n";
+  char* Temp_high = "Hi, the temperature is too high\n";
   if(breachType == TOO_LOW)
   {
-      printMessage(recepient,TOO_LOW);
+      printMessage(recepient,Temp_low);
   }
   else if(breachType == TOO_HIGH)
   {
-      printMessage(recepient,TOO_HIGH);
+      printMessage(recepient,Temp_high);
   }
 }
