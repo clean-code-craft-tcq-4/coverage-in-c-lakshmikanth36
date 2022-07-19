@@ -39,16 +39,15 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
 
 int checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
-  int status =-1;
   if(alertTarget == TO_CONTROLLER)
      {
-      status = sendToController(breachType);
+      sendToController(breachType);
      }
    else 
      {
-      status = sendToEmail(breachType);
+      sendToEmail(breachType);
      }
-  return status;
+  return 1;
 }
 
 void sendToController(BreachType breachType) {
