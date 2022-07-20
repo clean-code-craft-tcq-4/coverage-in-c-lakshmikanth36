@@ -21,6 +21,12 @@ TEST_CASE("classify breach")
     REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 0) == NORMAL);
     REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,50) == TOO_HIGH);
 }
+
+TEST_CASE("Too low/High temp via Email") {
+  REQUIRE(sendToEmail(TOO_LOW));
+  REQUIRE(sendToEmail(TOO_HIGH));
+}
+
 TEST_CASE("Check and Alert of coolingType Temperature") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = PASSIVE_COOLING;
