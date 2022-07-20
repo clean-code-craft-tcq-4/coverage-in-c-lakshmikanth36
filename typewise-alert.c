@@ -52,12 +52,12 @@ int checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double 
 
 void sendToController(BreachType breachType) {
   const unsigned short header = 0xfeed;
-  printf("%x : %x\n", header, breachType);
+  sprintf("%x : %x\n", header, breachType);
 }
 
 void printMessage(const char *recepient,const char *temperature_low_high)
 {
-    printf("To:%s \n,  %s \n ", recepient,temperature_low_high);
+    sprintf("To:%s \n,  %s \n ", recepient,temperature_low_high);
 }
 
 void sendToEmail(BreachType breachType) {
