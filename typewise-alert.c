@@ -52,7 +52,7 @@ int checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double 
 
 void sendToController(BreachType breachType) {
   const unsigned short header = 0xfeed;
-  sprintf("%x : %x\n", header, breachType);
+  printf("%x : %x\n", header, breachType);
 }
 
 void printMessage(const char *recepient,const char *temperature_low_high)
