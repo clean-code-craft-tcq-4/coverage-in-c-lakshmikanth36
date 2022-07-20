@@ -13,10 +13,13 @@ TEST_CASE("infers the breach according to limits") {
 TEST_CASE("classify breach")
 {
     REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, -1) == TOO_LOW);
+    REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,36) == TOO_HIGH);
+    REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,25) == NORMAL);
     REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING, 46) == TOO_HIGH);
+    REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING,40) == NORMAL);
     REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 41) == TOO_HIGH);
     REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 0) == NORMAL);
-
+    REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,50) == TOO_HIGH);
 }
 TEST_CASE("Check and Alert of coolingType Temperature") {
   BatteryCharacter batteryChar;
