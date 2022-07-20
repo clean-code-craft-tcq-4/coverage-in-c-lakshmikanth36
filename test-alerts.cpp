@@ -2,6 +2,7 @@
 
 #include "test/catch.hpp"
 #include "typewise-alert.h"
+#include "string.h"
 
 TEST_CASE("infers the breach according to limits") {
   REQUIRE(inferBreach(12, 20, 30) == TOO_LOW);
@@ -25,7 +26,7 @@ TEST_CASE("classify breach")
 TEST_CASE("Check and Alert of coolingType Temperature") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = PASSIVE_COOLING;
-  batteryChar.brand ="PASSING_COLLING BRAND";
+  strcmp(batteryChar.brand,"PASSIVE_COOLING_BRAND")
   assert(checkAndAlert(TO_CONTROLLER,batteryChar,0));
   assert(checkAndAlert(TO_CONTROLLER,batteryChar,10));
   assert(checkAndAlert(TO_EMAIL,batteryChar,20));		
