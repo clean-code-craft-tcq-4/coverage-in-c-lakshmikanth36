@@ -52,4 +52,5 @@ TEST_CASE("Check and Alert of coolingType Temperature") {
   assert(checkAndAlert(TO_EMAIL,batteryChar,46));
   assert(checkAndAlert(TO_EMAIL,batteryChar,-1));
   assert(checkAndAlert(TO_EMAIL,batteryChar,0));
+  assert(checkAndAlert(TO_EMAIL,batteryChar,-1000));
 }
