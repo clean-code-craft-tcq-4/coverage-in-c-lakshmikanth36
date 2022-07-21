@@ -57,7 +57,7 @@ void sendToController(BreachType breachType) {
 
 void printMessage(const char *recepient,const char *temperature_low_high)
 {
-    printf("To:%s\n, %s\n ", recepient,temperature_low_high);
+    printf("To:%s\n %s\n ", recepient,temperature_low_high);
 }
 
 void sendToEmail(BreachType breachType) 
