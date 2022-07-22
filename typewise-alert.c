@@ -56,7 +56,7 @@ int sendToController(BreachType breachType) {
   return 0;
 }
 
-void printMessage(const char *recepient,const char *message char *alertType )
+void printMessage(const char *recepient,const char *message, const char *alertType )
 {
     printf("To:%s\n %s %s", recepient,message,alertType);
 }
