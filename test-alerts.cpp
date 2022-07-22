@@ -33,46 +33,13 @@ TEST_CASE("Check Email")
 {
     REQUIRE(sendToEmail(TOO_LOW)==0);
     REQUIRE(sendToEmail(TOO_HIGH)==0);
-    //REQUIRE(sendToEmail(NORMAL)==0);
 }
-/*
+
 TEST_CASE("Check and Alert of coolingType Temperature") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = PASSIVE_COOLING;
   assert(checkAndAlert(TO_CONTROLLER,batteryChar,0));
-  assert(checkAndAlert(TO_CONTROLLER,batteryChar,10));
-  assert(checkAndAlert(TO_CONTROLLER,batteryChar,-1));
-  assert(checkAndAlert(TO_CONTROLLER,batteryChar,57.5));
-  assert(checkAndAlert(TO_EMAIL,batteryChar,20));		
-  assert(checkAndAlert(TO_EMAIL,batteryChar,35));	
-  assert(checkAndAlert(TO_EMAIL,batteryChar,-1));	
-  assert(checkAndAlert(TO_EMAIL,batteryChar,-0));	
-  batteryChar.coolingType = MED_ACTIVE_COOLING;
-  assert(checkAndAlert(TO_CONTROLLER,batteryChar,0));
-  assert(checkAndAlert(TO_CONTROLLER,batteryChar,-1));
-  assert(checkAndAlert(TO_CONTROLLER,batteryChar,50));
-  assert(checkAndAlert(TO_EMAIL,batteryChar,41));
-  assert(checkAndAlert(TO_EMAIL,batteryChar,-1));
-  assert(checkAndAlert(TO_EMAIL,batteryChar,50));
-  assert(checkAndAlert(TO_EMAIL,batteryChar,0));
-  batteryChar.coolingType = HI_ACTIVE_COOLING;
-  assert(checkAndAlert(TO_CONTROLLER,batteryChar,0));
-  assert(checkAndAlert(TO_CONTROLLER,batteryChar,-1));
-  assert(checkAndAlert(TO_CONTROLLER,batteryChar,40));
-  assert(checkAndAlert(TO_CONTROLLER,batteryChar,46));
-  assert(checkAndAlert(TO_EMAIL,batteryChar,40));
-  assert(checkAndAlert(TO_EMAIL,batteryChar,46));
-  assert(checkAndAlert(TO_EMAIL,batteryChar,-1));
-  assert(checkAndAlert(TO_EMAIL,batteryChar,0));
-  assert(checkAndAlert(TO_EMAIL,batteryChar,-1000));
-}
-*/
-TEST_CASE("Check and Alert of coolingType Temperature") {
-  BatteryCharacter batteryChar;
-  batteryChar.coolingType = PASSIVE_COOLING;
- assert(checkAndAlert(TO_CONTROLLER,batteryChar,0));
- // assert(checkAndAlert(TO_EMAIL,batteryChar,20));		
-  //assert(checkAndAlert(TO_EMAIL,batteryChar,35));	
+  
   assert(checkAndAlert(TO_EMAIL,batteryChar,-1));	
   assert(checkAndAlert(TO_EMAIL,batteryChar,-0));
   assert(checkAndAlert(TO_EMAIL,batteryChar,40));  
@@ -81,13 +48,10 @@ TEST_CASE("Check and Alert of coolingType Temperature") {
   assert(checkAndAlert(TO_EMAIL,batteryChar,41));
   assert(checkAndAlert(TO_EMAIL,batteryChar,-1));
   assert(checkAndAlert(TO_EMAIL,batteryChar,50));
-  //assert(checkAndAlert(TO_EMAIL,batteryChar,0));
   
   batteryChar.coolingType = HI_ACTIVE_COOLING;
-  //assert(checkAndAlert(TO_EMAIL,batteryChar,40));
   assert(checkAndAlert(TO_EMAIL,batteryChar,46));
   assert(checkAndAlert(TO_EMAIL,batteryChar,-1));
-  //assert(checkAndAlert(TO_EMAIL,batteryChar,0));
   assert(checkAndAlert(TO_EMAIL,batteryChar,-1000));
 }
 
