@@ -25,8 +25,8 @@ TEST_CASE("classify breach")
 }
 TEST_CASE("Check Controller")
 {
-    REQUIRE(sendToController(TO_LOW));
-    REQUIRE(sendToController(TO_HIGH));
+    REQUIRE(sendToController(TOO_LOW));
+    REQUIRE(sendToController(TOO_HIGH));
     REQUIRE(sendToController(MORMAL));
 }
 TEST_CASE("Check Email")
