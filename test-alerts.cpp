@@ -23,6 +23,18 @@ TEST_CASE("classify breach")
     REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 0) == NORMAL);
     REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,50) == TOO_HIGH);
 }
+TEST_CASE("Check Controller")
+{
+    REQUIRE(sendToController(TO_LOW));
+    REQUIRE(sendToController(TO_HIGH));
+    REQUIRE(sendToController(MORMAL));
+}
+TEST_CASE("Check Email")
+{
+    REQUIRE(sendToEmail(TOO_LOW));
+    REQUIRE(sendToEmail(TOO_HIGH));
+    REQUIRE(sendToEmail(NORMAL));
+}
 /*
 TEST_CASE("Check and Alert of coolingType Temperature") {
   BatteryCharacter batteryChar;
