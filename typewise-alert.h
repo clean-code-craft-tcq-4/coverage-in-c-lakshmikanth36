@@ -28,4 +28,4 @@ typedef struct {
 int checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
 int sendToController(BreachType breachType);
 int sendToEmail(BreachType breachType);
-void printMessage(char *recepient,char *temperature_low_high);
+void printMessage(const char *recepient,const char *message char *alertType )
