@@ -50,9 +50,10 @@ int checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double 
   return 1;
 }
 
-void sendToController(BreachType breachType) {
+int sendToController(BreachType breachType) {
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
+  return 0;
 }
 
 void printMessage(const char *recepient,const char *temperature_low_high)
@@ -60,9 +61,10 @@ void printMessage(const char *recepient,const char *temperature_low_high)
     printf("To:%s\n %s\n ", recepient,temperature_low_high);
 }
 
-void sendToEmail(BreachType breachType) 
+int sendToEmail(BreachType breachType) 
 {
   const char* recepient = "a.b@c.com";
   const char* buffer[3] = {"Hi the temperature is Normal\n" , "Hi the temperature is TOO_LOW\n" , "Hi the temperature is TOO_HIGH\n"};
   (breachType == TOO_LOW) ? printMessage(recepient,buffer[1]) : (breachType == TOO_HIGH) ? printMessage(recepient,buffer[2]) : printMessage(recepient,buffer[0]);
+  return 0;
 }
