@@ -25,15 +25,15 @@ TEST_CASE("classify breach")
 }
 TEST_CASE("Check Controller")
 {
-    REQUIRE(sendToController(TOO_LOW));
-    REQUIRE(sendToController(TOO_HIGH));
-    REQUIRE(sendToController(MORMAL));
+    REQUIRE(sendToController(TOO_LOW)==0);
+    REQUIRE(sendToController(TOO_HIGH)==0);
+    REQUIRE(sendToController(NORMAL)==0);
 }
 TEST_CASE("Check Email")
 {
-    REQUIRE(sendToEmail(TOO_LOW));
-    REQUIRE(sendToEmail(TOO_HIGH));
-    REQUIRE(sendToEmail(NORMAL));
+    REQUIRE(sendToEmail(TOO_LOW)==0);
+    REQUIRE(sendToEmail(TOO_HIGH)==0);
+    REQUIRE(sendToEmail(NORMAL)==0);
 }
 /*
 TEST_CASE("Check and Alert of coolingType Temperature") {
