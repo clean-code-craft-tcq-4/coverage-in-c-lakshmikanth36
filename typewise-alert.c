@@ -1,7 +1,8 @@
 #include "typewise-alert.h"
 #include <stdio.h>
 
-BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
+BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
+{
   if(value < lowerLimit) 
   {
       return TOO_LOW;
@@ -16,28 +17,27 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
   }
 }
 
-BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) {
-  int lowerLimit = 0;
-  int upperLimit = 0;
+BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
+{
+  int lowerLimit = PASSIVE_COOLING_LOWER_LIMIT;
+  int upperLimit = DEFAULT_COOLING_UPPER_LIMIT;
   if(coolingType == PASSIVE_COOLING) 
   {
-      lowerLimit = 0;
-      upperLimit = 35;
+      upperLimit = PASSIVE_COOLING_UPPER_LIMIT;
   }
   else if(coolingType == HI_ACTIVE_COOLING)
   {
-      lowerLimit = 0;
-      upperLimit = 45;
+      upperLimit = HI_ACTIVE_COOLING_UPPER_LIMIT;
   }
   else
    {
-      lowerLimit = 0;
-      upperLimit = 40;
+      upperLimit = MED_ACTIVE_COOLING_UPPER_LIMIT;
   }
   return inferBreach(temperatureInC, lowerLimit, upperLimit);
 }
 
-int checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
+int checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
+{
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
   if(alertTarget == TO_CONTROLLER)
      {
@@ -50,7 +50,8 @@ int checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double 
   return 1;
 }
 
-int sendToController(BreachType breachType) {
+int sendToController(BreachType breachType) 
+{
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
   return 0;
