@@ -1,4 +1,14 @@
 #pragma once
+ 
+ const int PASSIVE_COOLING_LOWER_LIMIT=0;
+ const int HI_ACTIVE_COOLING_LOWER_LIMIT=0;
+ const int MED_ACTIVE_COOLING_LOWER_LIMIT=0;
+ 
+ const int DEFAULT_COOLING_UPPER_LIMIT=0;
+ const int PASSIVE_COOLING_UPPER_LIMIT=35;
+ const int HI_ACTIVE_COOLING_UPPER_LIMIT=45;
+ const int MED_ACTIVE_COOLING_UPPER_LIMIT=40;
+
 
 typedef enum {
   PASSIVE_COOLING,
@@ -25,8 +35,7 @@ typedef struct {
   char brand[48];
 } BatteryCharacter;
 
-void checkAndAlert(
-  AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
-
-void sendToController(BreachType breachType);
-void sendToEmail(BreachType breachType);
+int checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC);
+int sendToController(BreachType breachType);
+int sendToEmail(BreachType breachType);
+void printMessage(const char *recepient,const char *message, const char *alertType);
